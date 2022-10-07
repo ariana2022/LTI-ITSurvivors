@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=itsurvivors
+      - POSTGRES_USER=proyect
+      - POSTGRES_PASSWORD=proyect123
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PDADMIN_DEFAULT_EMAIL=admin@itsurvivors.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - 5050:80
